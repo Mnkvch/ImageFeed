@@ -21,14 +21,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" name="YPBlack"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="10" reuseIdentifier="ImagesListCell" rowHeight="428" id="yXo-Il-9Mc" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="10" reuseIdentifier="ImagesListCell" rowHeight="428" id="yXo-Il-9Mc" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="428"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yXo-Il-9Mc" id="JO2-Z2-Nwf">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="428"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="NaturalMan" translatesAutoresizingMaskIntoConstraints="NO" id="Qez-pd-zBz">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="Qez-pd-zBz">
                                                     <rect key="frame" x="16" y="4" width="361" height="420"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -37,25 +37,25 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thf-aZ-Cij" userLabel="LikeButtom">
-                                                    <rect key="frame" x="347" y="4" width="30" height="28"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="Like"/>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3E-e9-G8g" userLabel="DataLabel">
                                                     <rect key="frame" x="24.000000000000007" y="400.33333333333331" width="101.66666666666669" height="15.666666666666686"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" name="YP White"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thf-aZ-Cij" userLabel="LikeButtom">
+                                                    <rect key="frame" x="336" y="16" width="30" height="28"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="Like"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Qez-pd-zBz" firstAttribute="trailing" secondItem="thf-aZ-Cij" secondAttribute="trailing" id="7bE-TS-YvV"/>
+                                                <constraint firstItem="Qez-pd-zBz" firstAttribute="trailing" secondItem="thf-aZ-Cij" secondAttribute="trailing" constant="11" id="7bE-TS-YvV"/>
                                                 <constraint firstItem="Qez-pd-zBz" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="N3E-e9-G8g" secondAttribute="trailing" constant="8" id="CI1-as-ojQ"/>
                                                 <constraint firstItem="Qez-pd-zBz" firstAttribute="leading" secondItem="JO2-Z2-Nwf" secondAttribute="leading" constant="16" id="Ldk-Jq-JRL"/>
                                                 <constraint firstItem="N3E-e9-G8g" firstAttribute="leading" secondItem="Qez-pd-zBz" secondAttribute="leading" constant="8" id="M5r-2p-Csu"/>
                                                 <constraint firstAttribute="bottom" secondItem="Qez-pd-zBz" secondAttribute="bottom" constant="4" id="R5b-4E-YHh"/>
-                                                <constraint firstItem="thf-aZ-Cij" firstAttribute="top" secondItem="Qez-pd-zBz" secondAttribute="top" id="TlO-o9-aR6"/>
+                                                <constraint firstItem="thf-aZ-Cij" firstAttribute="top" secondItem="Qez-pd-zBz" secondAttribute="top" constant="12" id="TlO-o9-aR6"/>
                                                 <constraint firstAttribute="trailing" secondItem="Qez-pd-zBz" secondAttribute="trailing" constant="16" id="Y6F-y2-lhl"/>
                                                 <constraint firstItem="Qez-pd-zBz" firstAttribute="bottom" secondItem="N3E-e9-G8g" secondAttribute="bottom" constant="8" id="hAj-y4-2dP"/>
                                                 <constraint firstItem="Qez-pd-zBz" firstAttribute="top" secondItem="JO2-Z2-Nwf" secondAttribute="top" constant="4" id="j86-fd-s1S"/>
@@ -94,8 +94,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Like" width="30" height="27.333333969116211"/>
-        <image name="NaturalMan" width="200" height="132"/>
+        <image name="0" width="200" height="132"/>
+        <image name="Like" width="30" height="28"/>
         <namedColor name="YP White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
