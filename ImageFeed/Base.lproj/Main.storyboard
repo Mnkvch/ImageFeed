@@ -18,18 +18,74 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Uff-zk-OOJ">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" name="YPBlack"/>
-                                <color key="sectionIndexBackgroundColor" name="YPBlack"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="10" reuseIdentifier="ImagesListCell" rowHeight="428" id="yXo-Il-9Mc" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="428"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yXo-Il-9Mc" id="JO2-Z2-Nwf">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="428"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="Qez-pd-zBz">
+                                                    <rect key="frame" x="16" y="4" width="361" height="420"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3E-e9-G8g" userLabel="DataLabel">
+                                                    <rect key="frame" x="24.000000000000007" y="400.33333333333331" width="101.66666666666669" height="15.666666666666686"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" name="YP White"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyd-8u-o5U">
+                                                    <rect key="frame" x="333" y="4" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="ETc-gZ-bRE"/>
+                                                        <constraint firstAttribute="width" secondItem="qyd-8u-o5U" secondAttribute="height" multiplier="1:1" id="cWq-6m-GZe"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="likeButton" image="Like"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Qez-pd-zBz" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="N3E-e9-G8g" secondAttribute="trailing" constant="8" id="CI1-as-ojQ"/>
+                                                <constraint firstItem="qyd-8u-o5U" firstAttribute="trailing" secondItem="Qez-pd-zBz" secondAttribute="trailing" id="Hc1-I2-oTg"/>
+                                                <constraint firstItem="Qez-pd-zBz" firstAttribute="leading" secondItem="JO2-Z2-Nwf" secondAttribute="leading" constant="16" id="Ldk-Jq-JRL"/>
+                                                <constraint firstItem="N3E-e9-G8g" firstAttribute="leading" secondItem="Qez-pd-zBz" secondAttribute="leading" constant="8" id="M5r-2p-Csu"/>
+                                                <constraint firstAttribute="bottom" secondItem="Qez-pd-zBz" secondAttribute="bottom" constant="4" id="R5b-4E-YHh"/>
+                                                <constraint firstAttribute="trailing" secondItem="Qez-pd-zBz" secondAttribute="trailing" constant="16" id="Y6F-y2-lhl"/>
+                                                <constraint firstItem="qyd-8u-o5U" firstAttribute="top" secondItem="Qez-pd-zBz" secondAttribute="top" id="a0N-YZ-TgI"/>
+                                                <constraint firstItem="Qez-pd-zBz" firstAttribute="bottom" secondItem="N3E-e9-G8g" secondAttribute="bottom" constant="8" id="hAj-y4-2dP"/>
+                                                <constraint firstItem="Qez-pd-zBz" firstAttribute="top" secondItem="JO2-Z2-Nwf" secondAttribute="top" constant="4" id="j86-fd-s1S"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="YPBlack"/>
+                                        <connections>
+                                            <outlet property="cellImage" destination="Qez-pd-zBz" id="yUt-BE-ojR"/>
+                                            <outlet property="dateLabel" destination="N3E-e9-G8g" id="W8I-0b-cfM"/>
+                                            <outlet property="likeButton" destination="qyd-8u-o5U" id="2eI-2Z-Knk"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Ica-l9-9Zo"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="fiT-Ze-kAO"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YPBlack"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Uff-zk-OOJ" secondAttribute="trailing" id="D1w-Wf-VMp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Uff-zk-OOJ" secondAttribute="bottom" id="Epf-Iq-S12"/>
-                            <constraint firstItem="Uff-zk-OOJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="knj-Cr-1zn"/>
-                            <constraint firstItem="Uff-zk-OOJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sLK-Zv-ZNh"/>
+                            <constraint firstAttribute="trailing" secondItem="Uff-zk-OOJ" secondAttribute="trailing" id="D1w-Wf-VMp"/>
+                            <constraint firstItem="Uff-zk-OOJ" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="Epf-Iq-S12"/>
+                            <constraint firstItem="Uff-zk-OOJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="knj-Cr-1zn"/>
+                            <constraint firstAttribute="top" secondItem="Uff-zk-OOJ" secondAttribute="top" id="sLK-Zv-ZNh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -42,6 +98,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="0" width="200" height="132"/>
+        <image name="Like" width="44" height="44"/>
+        <namedColor name="YP White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="YPBlack">
             <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
