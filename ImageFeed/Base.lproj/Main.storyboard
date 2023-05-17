@@ -44,18 +44,22 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thf-aZ-Cij" userLabel="LikeButtom">
-                                                    <rect key="frame" x="336" y="16" width="30" height="28"/>
+                                                    <rect key="frame" x="333" y="4" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="Y3n-Zl-AIE"/>
+                                                        <constraint firstAttribute="height" constant="44" id="hl6-WV-QlD"/>
+                                                    </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="Like"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Qez-pd-zBz" firstAttribute="trailing" secondItem="thf-aZ-Cij" secondAttribute="trailing" constant="11" id="7bE-TS-YvV"/>
+                                                <constraint firstItem="Qez-pd-zBz" firstAttribute="trailing" secondItem="thf-aZ-Cij" secondAttribute="trailing" id="7bE-TS-YvV"/>
                                                 <constraint firstItem="Qez-pd-zBz" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="N3E-e9-G8g" secondAttribute="trailing" constant="8" id="CI1-as-ojQ"/>
                                                 <constraint firstItem="Qez-pd-zBz" firstAttribute="leading" secondItem="JO2-Z2-Nwf" secondAttribute="leading" constant="16" id="Ldk-Jq-JRL"/>
                                                 <constraint firstItem="N3E-e9-G8g" firstAttribute="leading" secondItem="Qez-pd-zBz" secondAttribute="leading" constant="8" id="M5r-2p-Csu"/>
                                                 <constraint firstAttribute="bottom" secondItem="Qez-pd-zBz" secondAttribute="bottom" constant="4" id="R5b-4E-YHh"/>
-                                                <constraint firstItem="thf-aZ-Cij" firstAttribute="top" secondItem="Qez-pd-zBz" secondAttribute="top" constant="12" id="TlO-o9-aR6"/>
+                                                <constraint firstItem="thf-aZ-Cij" firstAttribute="top" secondItem="Qez-pd-zBz" secondAttribute="top" id="TlO-o9-aR6"/>
                                                 <constraint firstAttribute="trailing" secondItem="Qez-pd-zBz" secondAttribute="trailing" constant="16" id="Y6F-y2-lhl"/>
                                                 <constraint firstItem="Qez-pd-zBz" firstAttribute="bottom" secondItem="N3E-e9-G8g" secondAttribute="bottom" constant="8" id="hAj-y4-2dP"/>
                                                 <constraint firstItem="Qez-pd-zBz" firstAttribute="top" secondItem="JO2-Z2-Nwf" secondAttribute="top" constant="4" id="j86-fd-s1S"/>
