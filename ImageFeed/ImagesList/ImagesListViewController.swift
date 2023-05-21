@@ -35,6 +35,10 @@ class ImagesListViewController: UIViewController {
         formatter.timeStyle = .none
         return formatter
     }()
+    
+//        override var preferredStatusBarStyle: UIStatusBarStyle {
+//          return .lightContent
+//    }
     }
    
 extension ImagesListViewController: UITableViewDelegate {
@@ -68,5 +72,8 @@ extension ImagesListViewController: UITableViewDataSource {
             let cellHeight = image.size.height * scale + imageInsets.top + imageInsets.bottom
             return cellHeight
         }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+      return .lightContent
+}
 }
 

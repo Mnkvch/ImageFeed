@@ -23,5 +23,7 @@ final class ProfileViewConroller: UIViewController {
     
     @IBAction func TapLogoutButton(_ sender: Any) {
     }
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+      return .lightContent
+}
 }
