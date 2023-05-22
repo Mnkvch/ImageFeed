@@ -8,6 +8,7 @@
 import UIKit
 
 class ImagesListViewController: UIViewController {
+    private let ShowSingleImageSegueIdentifier = "ShowSingleImage"
     
     func configCell(for cell: ImagesListCell, with indexPath: IndexPath) {
             guard let image = UIImage(named: photosName[indexPath.row]) else {
@@ -36,15 +37,27 @@ class ImagesListViewController: UIViewController {
         return formatter
     }()
     
-//        override var preferredStatusBarStyle: UIStatusBarStyle {
-//          return .lightContent
-//    }
+        override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if segue.identifier == ShowSingleImageSegueIdentifier {
+               let viewController = segue.destination as! SingleImageViewController
+               let indexPath = sender as! IndexPath
+               let image = UIImage(named: photosName[indexPath.row])
+               _ = viewController.view // CRASH FIXED !?
+               viewController.singleImage.image = image
+           } else {
+               super.prepare(for: segue, sender: sender)
+           }
+       }
     }
    
 extension ImagesListViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: ShowSingleImageSegueIdentifier, sender: indexPath)
+    }
 }
 extension ImagesListViewController: UITableViewDataSource {
     
@@ -52,14 +65,14 @@ extension ImagesListViewController: UITableViewDataSource {
         return photosName.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ImagesListCell.reuseIdentifier, for: indexPath) // 1
+            let cell = tableView.dequeueReusableCell(withIdentifier: ImagesListCell.reuseIdentifier, for: indexPath)
             
-            guard let imageListCell = cell as? ImagesListCell else { // 2
+            guard let imageListCell = cell as? ImagesListCell else {
                 return UITableViewCell()
             }
             
-        configCell(for: imageListCell, with: indexPath) // 3
-            return imageListCell // 4
+        configCell(for: imageListCell, with: indexPath)
+            return imageListCell
         }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             guard let image = UIImage(named: photosName[indexPath.row]) else {
@@ -72,8 +85,7 @@ extension ImagesListViewController: UITableViewDataSource {
             let cellHeight = image.size.height * scale + imageInsets.top + imageInsets.bottom
             return cellHeight
         }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-      return .lightContent
+    
 }
-}
+
 
