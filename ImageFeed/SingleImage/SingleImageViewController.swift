@@ -22,5 +22,7 @@ final class SingleImageViewController: UIViewController {
         singleImage.image = image
     }
     
-    
+    @IBAction private func didTapBackButton() {
+        dismiss(animated: true, completion: nil)
+    }
 }
