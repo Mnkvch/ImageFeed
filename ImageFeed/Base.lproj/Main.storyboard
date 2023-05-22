@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DSd-hb-2AI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fZL-kz-G04">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -70,6 +70,7 @@
                                             <outlet property="cellImage" destination="Qez-pd-zBz" id="yUt-BE-ojR"/>
                                             <outlet property="dateLabel" destination="N3E-e9-G8g" id="W8I-0b-cfM"/>
                                             <outlet property="likeButton" destination="thf-aZ-Cij" id="Txh-xw-ohN"/>
+                                            <segue destination="DSd-hb-2AI" kind="show" id="Vu6-vc-ZAd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -106,7 +107,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Yw-uh-ad3">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qqo-6K-c14"/>
@@ -118,13 +119,14 @@
                             <constraint firstItem="qqo-6K-c14" firstAttribute="trailing" secondItem="9Yw-uh-ad3" secondAttribute="trailing" id="zWy-oi-tEp"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="en7-So-VEi"/>
                     <connections>
                         <outlet property="singleImage" destination="9Yw-uh-ad3" id="iJL-1y-vwD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ah-Md-oMy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-921" y="-1535"/>
+            <point key="canvasLocation" x="-755" y="-1482"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="He3-yF-IFt">
