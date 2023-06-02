@@ -27,7 +27,7 @@ final class ProfileViewConroller: UIViewController {
         let labelName = UILabel()
         labelName.text = "Андрей Манкевич"
         labelName.textColor = .white
-        labelName.font = .systemFont(ofSize: 23)
+        labelName.font = .boldSystemFont(ofSize: 23)
         labelName.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(labelName)
         NSLayoutConstraint.activate([
@@ -56,7 +56,7 @@ final class ProfileViewConroller: UIViewController {
         
         let logoutButton = UIButton.systemButton(with: UIImage(systemName: "ipad.and.arrow.forward")!, target: self, action: #selector(Self.didTabButton)
         )
-        logoutButton.tintColor = .red
+        logoutButton.tintColor = UIColor(named: "YP Red")
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(logoutButton)
         logoutButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24).isActive = true
