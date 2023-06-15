@@ -53,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				556208102A326B020008A348 /* AuthViewController.swift */,
+				553885422A38F7A30052DCBA /* WebViewViewController.swift */,
 			);
 			path = AuthViewController;
 			sourceTree = "<group>";
@@ -111,7 +112,6 @@
 				55E2CF612A03054F008AF8B1 /* Assets.xcassets */,
 				55E2CF632A03054F008AF8B1 /* LaunchScreen.storyboard */,
 				55E2CF662A03054F008AF8B1 /* Info.plist */,
-				553885422A38F7A30052DCBA /* WebViewViewController.swift */,
 			);
 			path = ImageFeed;
 			sourceTree = "<group>";

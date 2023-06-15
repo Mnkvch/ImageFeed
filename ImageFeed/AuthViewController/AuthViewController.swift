@@ -8,7 +8,7 @@
 import UIKit
 
 final class AuthViewController: UIViewController {
-    
+    private let ShowWebViewSegueIdentifier = "ShowWebView"
     
     @objc private func didTabButton(){
         
@@ -29,25 +29,41 @@ final class AuthViewController: UIViewController {
         imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-   //     let activeButton = UIButton()
-        let activeButton = UIButton.systemButton(with: UIImage(systemName: "ipad.and.arrow.forward")!, target: self, action: #selector(Self.didTabButton))
-        
+        let activeButton = UIButton()
+        activeButton.addTarget(self, action: #selector(self.didTabButton), for: .touchUpInside)
         
         activeButton.layer.cornerRadius = 16
-        activeButton.backgroundColor = .white
+        activeButton.backgroundColor = UIColor (named: "YP White")
         activeButton.setTitle("Войти", for: .normal)
-        activeButton.setTitleColor(.black, for: .normal)
+        activeButton.setTitleColor(.init(named: "YPBlack"), for: .normal)
         activeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         
-        activeButton.isEnabled = true
-        activeButton.isHidden = false
-
-     
         activeButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(activeButton)
-       activeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -124).isActive = true
+        activeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -124).isActive = true
         activeButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
         activeButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == ShowWebViewSegueIdentifier {
+            guard
+                let webViewViewController = segue.destination as? WebViewViewController
+            else { fatalError("Failed to prepare for \(ShowWebViewSegueIdentifier)") }
+            webViewViewController.delegate = self
+        } else {
+            super.prepare(for: segue, sender: sender)
+        }
+    }
 }
+    extension AuthViewController: WebViewViewControllerDelegate {
+        func webViewViewController(_ vc: WebViewViewController, didAuthenticateWithCode code: String) {
+            //TODO: process code
+        }
+
+        func webViewViewControllerDidCancel(_ vc: WebViewViewController) {
+            dismiss(animated: true)
+        }
+    }
+
