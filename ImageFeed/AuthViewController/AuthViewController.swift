@@ -33,6 +33,7 @@ final class AuthViewController: UIViewController {
         activeButton.addTarget(self, action: #selector(self.didTabButton), for: .touchUpInside)
         
         activeButton.layer.cornerRadius = 16
+        activeButton.layer.masksToBounds = true
         activeButton.backgroundColor = UIColor (named: "YP White")
         activeButton.setTitle("Войти", for: .normal)
         activeButton.setTitleColor(.init(named: "YPBlack"), for: .normal)

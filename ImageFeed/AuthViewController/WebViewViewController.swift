@@ -77,18 +77,19 @@ final class WebViewViewController: UIViewController, WKUIDelegate {
             progressView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
             
             
-            var urlComponents = URLComponents(string: UnsplashAuthorizeURLString)!  //1
+            var urlComponents = URLComponents(string: UnsplashAuthorizeURLString)!
             urlComponents.queryItems = [
-                URLQueryItem(name: "client_id", value: AccessKey),                  //2
-                URLQueryItem(name: "redirect_uri", value: RedirectURI),             //3
-                URLQueryItem(name: "response_type", value: "code"),                 //4
-                URLQueryItem(name: "scope", value: AccessScope)                     //5
+                URLQueryItem(name: "client_id", value: AccessKey),
+                URLQueryItem(name: "redirect_uri", value: RedirectURI),             
+                URLQueryItem(name: "response_type", value: "code"),
+                URLQueryItem(name: "scope", value: AccessScope)
             ]
             let url = urlComponents.url!
             
             let request = URLRequest(url: url)
             webView.load(request)
             
+            //Делаем WebViewViewController навигационным делегатом для webView
             webView.navigationDelegate = self
         }
     }
