@@ -9,6 +9,7 @@ import UIKit
 
 final class AuthViewController: UIViewController {
     private let ShowWebViewSegueIdentifier = "ShowWebView"
+    private let oAuth2Service = OAuth2Service()
     
     @objc private func didTabButton(){
         
@@ -61,6 +62,15 @@ final class AuthViewController: UIViewController {
     extension AuthViewController: WebViewViewControllerDelegate {
         func webViewViewController(_ vc: WebViewViewController, didAuthenticateWithCode code: String) {
             //TODO: process code
+            OAuth2Service.shared.fetchOAuthToken(code) { result in
+                switch result {
+                case .success(let token):
+                    OAuth2TokenStorage.shared.token = token
+                case .failure(let error):
+                    assertionFailure(code)
+                }
+            }
+           
         }
 
         func webViewViewControllerDidCancel(_ vc: WebViewViewController) {
