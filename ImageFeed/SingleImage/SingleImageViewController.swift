@@ -26,8 +26,7 @@ final class SingleImageViewController: UIViewController {
         scrollView.maximumZoomScale = 1.25
         guard image != nil else { return }
         rescaleAndCenterImageInScrollView(image: image)
-        
-    }
+        }
     
     @IBAction private func didTapBackButton() {
         dismiss(animated: true, completion: nil)

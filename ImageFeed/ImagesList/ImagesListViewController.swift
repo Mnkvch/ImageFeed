@@ -85,7 +85,6 @@ extension ImagesListViewController: UITableViewDataSource {
         let cellHeight = image.size.height * scale + imageInsets.top + imageInsets.bottom
         return cellHeight
     }
-    
 }
 
 

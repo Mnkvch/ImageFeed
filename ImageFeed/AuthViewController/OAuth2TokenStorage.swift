@@ -16,7 +16,7 @@ final class OAuth2TokenStorage {
             userDefaults.string(forKey: Keys.bearerToken.rawValue)
         }
         set {
-           userDefaults.set(newValue, forKey: Keys.bearerToken.rawValue)
+            userDefaults.set(newValue, forKey: Keys.bearerToken.rawValue)
         }
     }
     // MARK: - Keys for UserDefaults:

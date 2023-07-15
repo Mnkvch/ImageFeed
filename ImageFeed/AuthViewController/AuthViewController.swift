@@ -7,19 +7,32 @@
 
 import UIKit
 
+protocol AuthViewControllerDelegate: AnyObject {
+    func authViewController(_ vc: AuthViewController, didAuthenticateWithCode code: String)
+}
+
 final class AuthViewController: UIViewController {
     private let ShowWebViewSegueIdentifier = "ShowWebView"
-    private let oAuth2Service = OAuth2Service()
+    weak var delegate: AuthViewControllerDelegate?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == ShowWebViewSegueIdentifier {
+            guard
+                let webViewViewController = segue.destination as? WebViewViewController
+            else { fatalError("Failed to prepare for \(ShowWebViewSegueIdentifier)") }
+            webViewViewController.delegate = self
+        } else {
+            super.prepare(for: segue, sender: sender)
+        }
+    }
     
     @objc private func didTabButton(){
         
-        performSegue(withIdentifier: "SegueWebViewView", sender: self)
-        
-    }
+        performSegue(withIdentifier: "ShowWebView", sender: self)
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         let logoImage = UIImage(imageLiteralResourceName:"auth_screen_logo")
         let imageView = UIImageView(image: logoImage)
@@ -47,34 +60,15 @@ final class AuthViewController: UIViewController {
         activeButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
         
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == ShowWebViewSegueIdentifier {
-            guard
-                let webViewViewController = segue.destination as? WebViewViewController
-            else { fatalError("Failed to prepare for \(ShowWebViewSegueIdentifier)") }
-            webViewViewController.delegate = self
-        } else {
-            super.prepare(for: segue, sender: sender)
+}
+
+extension AuthViewController: WebViewViewControllerDelegate {
+    func webViewViewController(_ vc: WebViewViewController, didAuthenticateWithCode code: String) {
+        delegate?.authViewController(self, didAuthenticateWithCode: code)
         }
+    
+    func webViewViewControllerDidCancel(_ vc: WebViewViewController) {
+        dismiss(animated: true)
     }
 }
-    extension AuthViewController: WebViewViewControllerDelegate {
-        func webViewViewController(_ vc: WebViewViewController, didAuthenticateWithCode code: String) {
-            //TODO: process code
-            OAuth2Service.shared.fetchOAuthToken(code) { result in
-                switch result {
-                case .success(let token):
-                    OAuth2TokenStorage.shared.token = token
-                case .failure(let error):
-                    assertionFailure(code)
-                }
-            }
-           
-        }
-
-        func webViewViewControllerDidCancel(_ vc: WebViewViewController) {
-            dismiss(animated: true)
-        }
-    }
 
