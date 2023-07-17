@@ -46,6 +46,7 @@ final class AuthViewController: UIViewController {
         let activeButton = UIButton()
         activeButton.addTarget(self, action: #selector(self.didTabButton), for: .touchUpInside)
         
+        activeButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
         activeButton.layer.cornerRadius = 16
         activeButton.layer.masksToBounds = true
         activeButton.backgroundColor = UIColor (named: "YP White")
